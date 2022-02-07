@@ -20,7 +20,6 @@ export class User implements IUser {
     @Column({
         length: 72,
         nullable: false,
-        select: false
     })
     password: string;
 
