@@ -24,12 +24,11 @@ export class CreateTaskController implements Controller{
                 throw new NotProvidedError("Userkey");
             }
 
-
             await this.usecase.run({
                 uid: uuid(), 
                 description: description,
                 details: details,
-                user: userKey,
+                userKey: userKey,
             });
          
             return ok(res, "Task was successfully created");

@@ -30,7 +30,7 @@ export class UserRepository {
     }
 
     async listOne(userKey: string) {
-        const user = await this.repository.findOne(userKey, { select: ['login', 'password']});
+        const user = await this.repository.findOne(userKey);
         
         if(!user){
             throw new Error('User does not exists');

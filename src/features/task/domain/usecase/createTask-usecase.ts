@@ -3,6 +3,7 @@ import { NotFoundError } from "../../../../core/domain/errors/not-found-error";
 import { CacheRepository } from "../../../../core/infra/repositories/cache-repository";
 import { UserRepository } from "../../../user/infra/repositories/user-repository";
 import { TaskRepository } from "../../infra/repositories/task-repository";
+import { ITask } from "../model/task";
 
 
 
@@ -16,7 +17,7 @@ export class CreateTaskUseCase implements UseCase {
     async run(data: any) {
 
         //valida se usuário existe
-        const user = await this.userRepository.listOne(data.user);
+        const user = await this.userRepository.listOne(data.userKey);
         
         if(!user){
             throw new NotFoundError("User");
