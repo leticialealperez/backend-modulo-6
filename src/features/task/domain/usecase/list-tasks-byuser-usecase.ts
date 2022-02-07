@@ -20,6 +20,8 @@ export class ListTasksByUserUseCase implements UseCase {
 
             await this.cacheRepository.set(`tasks-byUser:${data.userKey}`, result);
 
+            return result;
+
         } catch (error: any) {
             throw new Error(error.toString());
         }
